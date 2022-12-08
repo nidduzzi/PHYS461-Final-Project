@@ -114,7 +114,7 @@ def run(
     X=0.73,  # ratio of hydrogen
     Y=0.26,  # ratio of helium
     Z=0.01,  # ratio  of "metalic" elements
-    MAX_ITER = 10000000000
+    MAX_ITER=10000000000,
 ):
     MU = 1 / (2 * X + 0.75 * Y + 0.5 * Z)  # Mean molecular wheight
     # Calculate Polytropic temperatures and dimensionless radius coordinate (Lane Emden)
@@ -254,5 +254,10 @@ if __name__ == "__main__":
         default=10000000000,
         type=int,
     )
+    parser.add_argument(
+        "-help",
+        help="Shows the help",
+        action="help",
+    )
     args = parser.parse_args()
-    run(args.n, args.M*MSUN, args.R*RSUN, args.X, args.Y, args.Z, args.MAX_ITER)
+    run(args.n, args.M * MSUN, args.R * RSUN, args.X, args.Y, args.Z, args.MAX_ITER)
